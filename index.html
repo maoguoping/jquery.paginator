@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paginator</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.paginator.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="pagation">
+</div>
+<script>
+$('#pagation').paginator(80,{
+    callback:function (index) {
+      console.log(index);
+    },
+    items_per_page:10,
+    current_page:0,
+    num_edge_entries:2,
+    prev_text:'上一页',
+    next_text:"下一页"
+})
+</script>
+</body>
+</html>
