@@ -161,7 +161,6 @@
             callback:function (index) {
                 assert.ok(true, "clicked");
                 done(); //表示异步结束，开始测试
-                text=index+" is done!";
             },
             items_per_page:10,
             current_page:0,
@@ -169,11 +168,28 @@
             prev_text:'上一页',
             next_text:"下一页"
         });
-        setTimeout(function(){
             $('[code=2]').trigger("click");
-        }, 1000)
-        assert.ok(true, "test");
     });
+    QUnit.test( "回调不置顶", function( assert ) {
+        var done = assert.async(); //表示存在异步，先暂停测试
+        var top=0;
+        init(100,{
+            callback:function (index) {
+                if($('.prev')!=undefined){
+                    assert.ok(top==$('.prev').offset().top);
+                    done(); //表示异步结束，开始测试
+                }
+            },
+            items_per_page:10,
+            current_page:0,
+            num_edge_entries:3,
+            prev_text:'上一页',
+            next_text:"下一页"
+        });
+        top=$('.prev').offset().top;
+        $('[code=2]').trigger("click");
+    });
+
 </script>
 </body>
 </html>

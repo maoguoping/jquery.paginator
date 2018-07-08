@@ -1,0 +1,10 @@
+a{
+    border: 1px solid #eeeeee;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.current{
+    background-color: aquamarine;
+}
